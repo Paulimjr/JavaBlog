@@ -1,0 +1,38 @@
+body {  
+    background-image: url ('img/fund_java.png');
+}
+
+#img_logo {
+    padding-top: 0 !important;
+    margin-top:  0 !important;
+}
+.navbar-brand {
+     padding-top: 0 !important;
+     margin-top:  2px !important;
+}
+.navbar-default {
+    border: 0px !important;
+    border-bottom: 3px solid #dcdcdc !important;
+    border-radius: 0px !important;
+}
+#container_posts {
+    margin-left: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+#post_conteudo {
+    margin-top: 15px !important;
+    border: 1px solid #ebebeb;
+    border-bottom: 3px solid #ebebeb;
+    text-align: justify !important;
+    padding: 10px;
+}
+.post_comentario  {
+    padding: 6px;
+    background: #dcdcdc !important;
+        
+}
+.btn-primary {
+    margin-left: 2px !important;
+    margin-top: 6px !important;
+}

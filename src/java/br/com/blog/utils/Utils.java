@@ -4,6 +4,7 @@ package br.com.blog.utils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.servlet.http.HttpServletRequest;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,6 +17,22 @@ import java.time.format.DateTimeFormatter;
  * @author paulo
  */
 public class Utils {
+    
+    /**
+     * Criptografa a URL do navegador com varias info.
+     * 
+     * @param request
+     * @return 
+     */
+    public static String urlEncryptor(HttpServletRequest request) {
+        return "?action="+LocalDate.now()+"&"+LocalDateTime.now()
+                +"&"+request.getLocalAddr()+"&"+request.getSession()
+                +"&"+request.getProtocol()+"&"+request.getLocalName()
+                +"&"+request.getRequestedSessionId()
+                +"&locale="+request.getLocale().getCountry()
+                +"&"+request.changeSessionId()
+                +"&"+request.getSession().getCreationTime();
+    }
     
     /**
      * Retorna data em String formato : dd/MM/yyyy

@@ -26,10 +26,10 @@ public class ConexaoBanco {
     public Statement st;
     public ResultSet rs;
     private PreparedStatement pstmt;
-    private String driver = "com.mysql.jdbc.Driver";
-    private String caminho = "jdbc:mysql://localhost/blog_java";
-    private String usuario = "root";
-    private String senha = "";
+    private final String driver = "com.mysql.jdbc.Driver";
+    private final String caminho = "jdbc:mysql://localhost/blog_java";
+    private final String usuario = "root";
+    private final String senha = "";
     public Connection conexao;
 
     /**

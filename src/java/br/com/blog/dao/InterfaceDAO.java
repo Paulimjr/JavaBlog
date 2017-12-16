@@ -39,6 +39,7 @@ public interface InterfaceDAO<Object> {
     
     /**
      * Listar todos
+     * @return 
      */
     List<Object> listarTodos();
     
