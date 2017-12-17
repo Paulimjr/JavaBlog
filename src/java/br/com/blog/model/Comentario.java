@@ -18,6 +18,7 @@ public class Comentario implements Serializable {
     private Usuario usuario_id;
     private String dataComentario;
     private String horaComentario;
+    private int postId;
 
     public Integer getId() {
         return id;
@@ -59,6 +60,15 @@ public class Comentario implements Serializable {
         this.horaComentario = horaComentario;
     }
 
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+    
+    
     @Override
     public String toString() {
         return "Comentario{" + "id=" + id + ", comentario=" + comentario + ", usuario_id=" + usuario_id + ", dataComentario=" + dataComentario + ", horaComentario=" + horaComentario + '}';

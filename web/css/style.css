@@ -36,3 +36,13 @@ body {
     margin-left: 2px !important;
     margin-top: 6px !important;
 }
+
+#circle {
+    width: 100px !important;
+    height: 100px !important;
+    background: red !important;
+    -moz-border-radius: 50px !important;
+    -webkit-border-radius: 50px !important;
+    border-radius: 50px !important;
+}
+

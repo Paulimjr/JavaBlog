@@ -8,6 +8,10 @@
         <servlet-name>Entrar</servlet-name>
         <servlet-class>br.com.blog.controller.Entrar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Post</servlet-name>
+        <servlet-class>br.com.blog.controller.Post</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CriarConta</servlet-name>
         <url-pattern>/CriarConta</url-pattern>
@@ -16,6 +20,11 @@
     <servlet-mapping>
         <servlet-name>Entrar</servlet-name>
         <url-pattern>/Entrar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Post</servlet-name>
+        <url-pattern>/Post</url-pattern>
+        <url-pattern>/Post/novo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

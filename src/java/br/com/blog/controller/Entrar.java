@@ -5,6 +5,7 @@
  */
 package br.com.blog.controller;
 
+import br.com.blog.dao.UsuariosDAO;
 import br.com.blog.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,19 +32,31 @@ public class Entrar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-       
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        
+
         Usuario u = new Usuario();
         u.setEmail(email);
         u.setSenha(senha);
-        System.out.println("usuario.. "+u.toString());
         
-        HttpSession httpSession = request.getSession(true);
+        System.out.println("parametros para logar: "+u.toString());
         
-        
+        u = new UsuariosDAO().logar(u);
+
+        if (null == u) {
+            request.setAttribute("message", "Usuário ou Senha estão incorretos!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else { //conseguiu logar de bom
+            HttpSession httpSession = request.getSession(true);            
+            httpSession.setAttribute("usuariologado", u);
+            response.sendRedirect("index.jsp");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

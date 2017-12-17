@@ -23,7 +23,7 @@ public class PostDAO extends BaseConexao implements InterfaceDAO<Post> {
         try {
             CONEXAO.conectar();
             String sql = "INSERT INTO post (titulo, subtitulo, texto, data_criacao, "
-                    + "hora_criacao, usuario_id) VALUES (?,?,?,?,?,?,?)";
+                    + "hora_criacao, usuario_id, visualizacoes) VALUES (?,?,?,?,?,?,?)";
             ps = CONEXAO.conexao.prepareStatement(sql);
             ps.setString(1, obj.getTitulo());
             ps.setString(2, obj.getSubtitulo());
@@ -31,6 +31,7 @@ public class PostDAO extends BaseConexao implements InterfaceDAO<Post> {
             ps.setString(4, Utils.retornaDataStringBR());
             ps.setString(5, Utils.retornaHoraStringBR());
             ps.setInt(6, obj.getUsuario_id().getId());
+            ps.setInt(7, 0);
             ps.executeUpdate();
             ps.close();
             CONEXAO.desconectaBanco();
@@ -38,6 +39,7 @@ public class PostDAO extends BaseConexao implements InterfaceDAO<Post> {
 
         } catch (SQLException e) {
             System.out.println("Erro ao INSERIR post: " + e.getMessage());
+            e.printStackTrace();
             return 0;
         }
     }
@@ -65,7 +67,7 @@ public class PostDAO extends BaseConexao implements InterfaceDAO<Post> {
         List<Post> posts = new ArrayList<>();
         String sql = "";
         try {
-            sql = "SELECT * FROM post ORDER BY data_criacao, hora_criacao DESC";
+            sql = "SELECT * FROM post ORDER BY id DESC";
             ps = CONEXAO.conectar().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {

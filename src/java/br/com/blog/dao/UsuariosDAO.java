@@ -80,4 +80,33 @@ public class UsuariosDAO extends BaseConexao implements InterfaceDAO<Usuario> {
         return usu;
     }
 
+    /**
+     * Logar na aplicacao Email e Senha
+     * 
+     * @param u
+     * @return 
+     */
+    public Usuario logar(Usuario u) {
+        Usuario usu = null;
+        try {
+            CONEXAO.conectar();
+            String sql = "SELECT * FROM usuario WHERE email = '" + u.getEmail()+"' AND senha = '"+u.getSenha()+"'";
+            ps = CONEXAO.conexao.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                usu = new Usuario();
+                usu.setId(rs.getInt("id"));
+                usu.setNome(rs.getString("nome"));
+                usu.setSobrenome(rs.getString("sobrenome"));
+                usu.setEmail(rs.getString("email"));
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return usu;
+    }
+
 }

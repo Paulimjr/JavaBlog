@@ -7,6 +7,12 @@
 <%@page import="br.com.blog.utils.Utils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+%>
 <html>
     <head>
     <head>
@@ -49,13 +55,22 @@
     <div class="col-md-4">
         <form method="POST" action="Entrar" id="form-login" class="form-group text-center">
             <br>
-            <input type="text" name="usuario" class="form-control" id="usuario" placeholder="Email" required/>
+            <input type="text" name="email" class="form-control" id="email" placeholder="Email" required/>
             </br>
             <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required/>
             <br>
             <br>
             <button type="submit" id="bt-entrar" class="btn btn-primary">Entrar</button>
         </form>
+        <br>
+        <div class="text-center">
+           <%
+               String message = (String) request.getAttribute("message");
+               if (message != null && !message.equals("")) {
+                   out.print("<h4>"+message+"</h4>");
+               }
+           %>
+        </div>
         <br>
         <center><a href="CriarConta">Crie uma nova conta</a></center>
     </div>

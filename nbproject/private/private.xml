@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/paulo/NetBeansProjects/JavaBlog/src/java/br/com/blog/dao/PostDAO.java</file>
+            <file>file:/home/paulo/NetBeansProjects/JavaBlog/web/verpost.jsp</file>
+            <file>file:/home/paulo/NetBeansProjects/JavaBlog/web/criarpost.jsp</file>
+            <file>file:/home/paulo/NetBeansProjects/JavaBlog/web/login.jsp</file>
+            <file>file:/home/paulo/NetBeansProjects/JavaBlog/src/java/br/com/blog/controller/Post.java</file>
+        </group>
     </open-files>
 </project-private>
