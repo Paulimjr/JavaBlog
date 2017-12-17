@@ -27,7 +27,7 @@ public class Utils {
     public static String urlEncryptor(HttpServletRequest request) {
         return "?action="+LocalDate.now()+"&"+LocalDateTime.now()
                 +"&"+request.getLocalAddr()+"&"+request.getSession()
-                +"&"+request.getProtocol()+"&"+request.getLocalName()
+                +"&"+request.getProtocol()+"0.RXmKUXGO0UQ&"+request.getLocalName()
                 +"&"+request.getRequestedSessionId()
                 +"&locale="+request.getLocale().getCountry()
                 +"&"+request.changeSessionId()

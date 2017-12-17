@@ -29,44 +29,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<%=Utils.urlEncryptor(request)%>">
+                <a class="navbar-brand" href="/JavaBlog/<%=Utils.urlEncryptor(request)%>">
                     <img src="img/logo_java.png" width="78px;" id="img_logo" alt="Java não é coisa de sobrinho."/>
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-right" action="login.jsp<%=Utils.urlEncryptor(request)%>" method="POST">
-                    <button type="submit" class="btn btn-default">Entrar</button>
+                <form class="navbar-form navbar-right" action="/JavaBlog<%=Utils.urlEncryptor(request)%>" method="POST">
+                    <button type="submit" class="btn btn-default">Voltar</button>
                 </form>
             </div><!-- /.navbar-collapse -->
         </nav>
         <%
-            List<Post> posts = new PostDAO().listarTodos();
+            String codPost = (String) request.getParameter("post_id");
+            String cod = "";
+            int pos = codPost.indexOf("?");//pegando valores antes de interrogação.
+            cod = codPost.substring(0, pos); 
+            
+            new PostDAO().incrementaVisualizacoesPost(1, String.valueOf(cod)); // entrou na pagina dará como visualizado...
+
+            Post post = new PostDAO().getPostById(String.valueOf(cod));
         %>
         <div class="container-fluid" id="container_posts">
-            <h2 style="font-family: verdana; font-weight: 900;">Java não é coisa de sobrinho.</h2>
-            <br>         
-            <table class="table table-striped" style="font-family: verdana;">
-                <thead>
-                    <tr>
-                        <th style="width: 800px;">Tópicos</th>
-                        <th style="width: 250px;">Autores</th>
-                        <th>Visualizações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%  if (posts != null && !posts.isEmpty()) { %>
-                        <% for (int i = 0; i < posts.size(); i++) { %>
-                        <tr style="padding-top: 22px !important; padding-bottom: 22px !important;">
-                                 <td><a style="text-decoration: none !important; color:#000;" href="verpost.jsp?post_id=<%=posts.get(i).getId() %><%=Utils.urlEncryptor(request)%>"> <b> <%= posts.get(i).getTitulo()%></b></a><br>
-                                     Publicado em: <%= posts.get(i).getData_criacao()+" - "+posts.get(i).getHora_criacao() %></td>
-                                <td><%= posts.get(i).getUsuario_id().getNome()+" "+posts.get(i).getUsuario_id().getSobrenome()  %></td>
-                                <td><%= posts.get(i).getVisualizacoes() %></td>
-                            </tr>
-                        <% } %>
-                    <% }%>
-                </tbody>
-            </table>
+
         </div>
     </body>
 </html>

@@ -6,6 +6,7 @@
 package br.com.blog.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -19,7 +20,9 @@ public class Post implements Serializable {
     private String texto;
     private String data_criacao;
     private String hora_criacao;
-    private int usuario_id;
+    private Usuario usuario_id;
+    private List<Comentario> comentarios;
+    private int visualizacoes;
 
     public Integer getId() {
         return id;
@@ -69,17 +72,33 @@ public class Post implements Serializable {
         this.hora_criacao = hora_criacao;
     }
 
-    public int getUsuario_id() {
+    public Usuario getUsuario_id() {
         return usuario_id;
     }
 
-    public void setUsuario_id(int usuario_id) {
+    public void setUsuario_id(Usuario usuario_id) {
         this.usuario_id = usuario_id;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public int getVisualizacoes() {
+        return visualizacoes;
+    }
+
+    public void setVisualizacoes(int visualizacoes) {
+        this.visualizacoes = visualizacoes;
     }
 
     @Override
     public String toString() {
-        return "Post{" + "id=" + id + ", titulo=" + titulo + ", subtitulo=" + subtitulo + ", texto=" + texto + ", data_criacao=" + data_criacao + ", hora_criacao=" + hora_criacao + ", usuario_id=" + usuario_id + '}';
+        return "Post{" + "id=" + id + ", titulo=" + titulo + ", subtitulo=" + subtitulo + ", texto=" + texto + ", data_criacao=" + data_criacao + ", hora_criacao=" + hora_criacao + ", usuario_id=" + usuario_id + ", comentarios=" + comentarios + ", visualizacoes=" + visualizacoes + '}';
     }
-    
+
 }

@@ -12,10 +12,10 @@ import java.io.Serializable;
  * @author paulo
  */
 public class Comentario implements Serializable {
-    
+
     private Integer id;
     private String comentario;
-    private int usuario_id;
+    private Usuario usuario_id;
     private String dataComentario;
     private String horaComentario;
 
@@ -35,11 +35,11 @@ public class Comentario implements Serializable {
         this.comentario = comentario;
     }
 
-    public int getUsuario_id() {
+    public Usuario getUsuario_id() {
         return usuario_id;
     }
 
-    public void setUsuario_id(int usuario_id) {
+    public void setUsuario_id(Usuario usuario_id) {
         this.usuario_id = usuario_id;
     }
 
@@ -63,5 +63,5 @@ public class Comentario implements Serializable {
     public String toString() {
         return "Comentario{" + "id=" + id + ", comentario=" + comentario + ", usuario_id=" + usuario_id + ", dataComentario=" + dataComentario + ", horaComentario=" + horaComentario + '}';
     }
-    
+
 }

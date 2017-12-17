@@ -11,6 +11,7 @@
     <servlet-mapping>
         <servlet-name>CriarConta</servlet-name>
         <url-pattern>/CriarConta</url-pattern>
+        <url-pattern>/CriarConta/cadastrar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Entrar</servlet-name>
